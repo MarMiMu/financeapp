@@ -1,0 +1,5 @@
+# ignore CSV files with specific names
+cibc.csv
+activity.csv
+cibc (1).csv
+combined_transactions.csv
