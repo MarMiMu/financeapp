@@ -32,7 +32,8 @@ df_cibc_credit = pd.DataFrame({
     'Category': 'Uncategorized',
     'Amount': df['Amount Owed'],
     'Account': 'CIBC',
-    'Account Type': 'Credit'
+    'Account Type': 'Credit',
+    'Flow': np.where(df['Amount Owed'] < 0, 'Inflow', 'Outflow')
 })
 
 df_amex_credit = pd.DataFrame({
@@ -41,7 +42,8 @@ df_amex_credit = pd.DataFrame({
     'Category': 'Uncategorized',
     'Amount': df_amex['Amount'],
     'Account': 'Amex',
-    'Account Type': 'Credit'
+    'Account Type': 'Credit',
+    'Flow': np.where(df_amex['Amount'] < 0, 'Inflow', 'Outflow')
 })
 
 df_cibc_debit = pd.DataFrame({
@@ -50,7 +52,8 @@ df_cibc_debit = pd.DataFrame({
     'Category': 'Uncategorized',
     'Amount': df_cibc['Amount Owed'],
     'Account': 'CIBC',
-    'Account Type': 'Debit'
+    'Account Type': 'Debit',
+    'Flow': np.where(df_cibc['Amount Owed'] < 0, 'Inflow', 'Outflow')
 })
 
 result = pd.concat([df_cibc_credit, df_amex_credit, df_cibc_debit], ignore_index=True)
